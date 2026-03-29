@@ -1,119 +1,111 @@
-// Navigation par boutons
+/* -------------------------------------------------- */
+/* NAVIGATION ENTRE SECTIONS */
+/* -------------------------------------------------- */
+
 document.querySelectorAll(".nav-btn").forEach((btn) => {
   btn.addEventListener("click", () => {
-    const targetId = btn.getAttribute("data-target");
-    if (!targetId) return;
-    const section = document.getElementById(targetId);
+    const target = btn.getAttribute("data-target");
+    const section = document.getElementById(target);
+
     if (section) {
-      section.scrollIntoView({ behavior: "smooth", block: "start" });
+      window.scrollTo({
+        top: section.offsetTop - 80,
+        behavior: "smooth",
+      });
     }
   });
 });
 
-// Objectif de la semaine (localStorage)
-const weeklyGoalInput = document.getElementById("weekly-goal-input");
-const weeklyGoalDisplay = document.getElementById("weekly-goal-display");
+/* -------------------------------------------------- */
+/* OBJECTIF DE LA SEMAINE (localStorage) */
+/* -------------------------------------------------- */
+
+const goalInput = document.getElementById("weekly-goal-input");
+const goalDisplay = document.getElementById("weekly-goal-display");
 const saveGoalBtn = document.getElementById("save-goal-btn");
 
-function loadWeeklyGoal() {
-  const goal = localStorage.getItem("weeklyGoal");
-  if (goal && weeklyGoalDisplay) {
-    weeklyGoalDisplay.textContent = goal;
+function loadGoal() {
+  const saved = localStorage.getItem("weeklyGoal");
+  if (saved) {
+    goalDisplay.textContent = saved;
   }
 }
 
-function saveWeeklyGoal() {
-  const value = weeklyGoalInput.value.trim();
-  if (!value) return;
+function saveGoal() {
+  const value = goalInput.value.trim();
+  if (value.length === 0) return;
+
   localStorage.setItem("weeklyGoal", value);
-  weeklyGoalDisplay.textContent = value;
-  weeklyGoalInput.value = "";
+  goalDisplay.textContent = value;
+  goalInput.value = "";
 }
 
 if (saveGoalBtn) {
-  saveGoalBtn.addEventListener("click", saveWeeklyGoal);
+  saveGoalBtn.addEventListener("click", saveGoal);
 }
 
-loadWeeklyGoal();
+loadGoal();
 
-// Gestion des ressources (localStorage)
+/* -------------------------------------------------- */
+/* RESSOURCES PERSONNELLES */
+/* -------------------------------------------------- */
+
 const resourceForm = document.getElementById("resource-form");
-const resourcesTableBody = document.querySelector("#resources-table tbody");
+const tableBody = document.querySelector("#resources-table tbody");
 
 function getResources() {
   const raw = localStorage.getItem("resources");
-  if (!raw) return [];
-  try {
-    return JSON.parse(raw);
-  } catch {
-    return [];
-  }
+  return raw ? JSON.parse(raw) : [];
 }
 
-function saveResources(resources) {
-  localStorage.setItem("resources", JSON.stringify(resources));
+function saveResources(list) {
+  localStorage.setItem("resources", JSON.stringify(list));
 }
 
 function renderResources() {
   const resources = getResources();
-  if (!resourcesTableBody) return;
-  resourcesTableBody.innerHTML = "";
+  tableBody.innerHTML = "";
 
   resources.forEach((res, index) => {
     const tr = document.createElement("tr");
 
-    const tdCat = document.createElement("td");
-    tdCat.textContent = res.category;
+    tr.innerHTML = `
+      <td>${res.category}</td>
+      <td>${res.title}</td>
+      <td><a href="${res.link}" target="_blank">Ouvrir</a></td>
+      <td>${res.notes || ""}</td>
+      <td><button class="delete-btn" data-index="${index}">✕</button></td>
+    `;
 
-    const tdTitle = document.createElement("td");
-    tdTitle.textContent = res.title;
+    tableBody.appendChild(tr);
+  });
 
-    const tdLink = document.createElement("td");
-    const a = document.createElement("a");
-    a.href = res.link;
-    a.target = "_blank";
-    a.textContent = "Ouvrir";
-    tdLink.appendChild(a);
-
-    const tdNotes = document.createElement("td");
-    tdNotes.textContent = res.notes || "";
-
-    const tdDelete = document.createElement("td");
-    const btn = document.createElement("button");
-    btn.textContent = "✕";
-    btn.className = "delete-btn";
+  document.querySelectorAll(".delete-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
+      const index = btn.getAttribute("data-index");
       deleteResource(index);
     });
-    tdDelete.appendChild(btn);
-
-    tr.appendChild(tdCat);
-    tr.appendChild(tdTitle);
-    tr.appendChild(tdLink);
-    tr.appendChild(tdNotes);
-    tr.appendChild(tdDelete);
-
-    resourcesTableBody.appendChild(tr);
   });
 }
 
 function addResource(resource) {
-  const resources = getResources();
-  resources.push(resource);
-  saveResources(resources);
+  const list = getResources();
+  list.push(resource);
+  saveResources(list);
   renderResources();
 }
 
 function deleteResource(index) {
-  const resources = getResources();
-  resources.splice(index, 1);
-  saveResources(resources);
+  const list = getResources();
+  list.splice(index, 1);
+  saveResources(list);
   renderResources();
 }
 
 if (resourceForm) {
   resourceForm.addEventListener("submit", (e) => {
     e.preventDefault();
+
     const category = document.getElementById("resource-category").value;
     const title = document.getElementById("resource-title").value.trim();
     const link = document.getElementById("resource-link").value.trim();

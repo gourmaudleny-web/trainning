@@ -2,304 +2,193 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Programme Intensif Chant & Acting</title>
+  <title>Entraînement Artistique — Tableau de Bord</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <header class="hero" id="home">
-    <nav class="navbar">
-      <div class="logo">🔥 Artiste en Progression</div>
-      <div class="nav-links">
-        <button class="nav-btn" data-target="home">Accueil</button>
-        <button class="nav-btn" data-target="chant">Chant</button>
-        <button class="nav-btn" data-target="acting">Acting</button>
-        <button class="nav-btn" data-target="anglais">Anglais</button>
-        <button class="nav-btn" data-target="planning">Planning</button>
-        <button class="nav-btn" data-target="ressources">Ressources</button>
-      </div>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">🎨 ARTIST DASH</div>
+
+    <nav class="sidebar-nav">
+      <button class="nav-btn" data-target="home">🏠 Accueil</button>
+      <button class="nav-btn" data-target="chant">🎤 Chant</button>
+      <button class="nav-btn" data-target="acting">🎭 Acting</button>
+      <button class="nav-btn" data-target="anglais">🇬🇧 Anglais</button>
+      <button class="nav-btn" data-target="planning">📅 Planning</button>
+      <button class="nav-btn" data-target="ressources">📦 Ressources</button>
     </nav>
+  </aside>
 
-    <div class="hero-content">
-      <h1>Programme Intensif<br><span>Chant & Acting</span></h1>
-      <p>Chaque jour, tu deviens meilleur. Ce site est ton tableau de bord d’entraînement.</p>
+  <!-- HEADER -->
+  <header class="topbar">
+    <h1>Programme Intensif Chant & Acting</h1>
+    <p class="subtitle">Chaque jour, tu deviens meilleur.</p>
+  </header>
 
-      <div class="hero-actions">
-        <button class="primary-btn nav-btn" data-target="chant">Commencer le Chant</button>
-        <button class="secondary-btn nav-btn" data-target="acting">Passer à l’Acting</button>
-      </div>
+  <!-- MAIN CONTENT -->
+  <main class="content">
 
-      <div class="goal-card">
-        <h2>Objectif de la semaine</h2>
-        <input type="text" id="weekly-goal-input" placeholder="Ex : Tenir mes notes aiguës sans forcer" />
-        <button id="save-goal-btn" class="primary-btn small">Enregistrer</button>
-        <p class="goal-display-label">Objectif actuel :</p>
-        <p id="weekly-goal-display" class="goal-display">Aucun objectif défini pour l’instant.</p>
+    <!-- ACCUEIL -->
+    <section id="home" class="section">
+      <h2>🔥 Tableau de Bord Artistique</h2>
+      <p class="section-subtitle">Ton espace d’entraînement quotidien, inspiré des plateformes modernes.</p>
+
+      <div class="goal-box">
+        <h3>🎯 Objectif de la semaine</h3>
+        <input type="text" id="weekly-goal-input" placeholder="Ex : Améliorer ma justesse" />
+        <button id="save-goal-btn" class="primary-btn">Enregistrer</button>
+
+        <p class="goal-label">Objectif actuel :</p>
+        <p id="weekly-goal-display" class="goal-display">Aucun objectif défini.</p>
       </div>
 
       <p class="quote">“Tu n’as pas besoin d’être parfait, tu as juste besoin d’être constant.”</p>
-    </div>
-  </header>
+    </section>
 
-  <main>
-    <!-- SECTION CHANT -->
+    <!-- CHANT -->
     <section id="chant" class="section">
       <h2>🎤 Chant — Routine 30 minutes</h2>
-      <p class="section-subtitle">Travail technique + musical pour construire une voix solide, saine et expressive.</p>
 
-      <div class="cards-grid">
-        <article class="card">
-          <h3>Respiration & détente (5 min)</h3>
-          <p>Respiration calme, soutien, relâchement du corps. Tu prépares ton instrument.</p>
-          <ul class="links-list">
-            <li><a target="_blank" href="https://www.youtube.com/results?search_query=beginner+vocal+warm+up+lip+trills">Recherche YouTube : lip trills débutants</a></li>
-            <li><a target="_blank" href="https://www.youtube.com/results?search_query=breathing+exercises+for+singers">Recherche YouTube : breathing exercises for singers</a></li>
-          </ul>
-        </article>
+      <div class="card-grid">
 
-        <article class="card">
-          <h3>Humming / SOVT (5 min)</h3>
-          <p>Réveiller la voix sans forcer, trouver la résonance, réduire les tensions.</p>
-          <ul class="links-list">
-            <li><a target="_blank" href="https://www.youtube.com/results?search_query=humming+vocal+warm+up">Recherche YouTube : humming vocal warm up</a></li>
-            <li><a target="_blank" href="https://www.youtube.com/results?search_query=straw+phonation+vocal+exercise">Recherche YouTube : straw phonation vocal exercise</a></li>
-          </ul>
-        </article>
+        <div class="card">
+          <h3>Respiration & détente</h3>
+          <p>Prépare ton souffle et ton corps.</p>
+          <a href="https://www.youtube.com/results?search_query=breathing+exercises+for+singers" target="_blank">Voir les exercices</a>
+        </div>
 
-        <article class="card">
-          <h3>Gammes & agilité (10 min)</h3>
-          <p>Justesse, souplesse, placement. Tu construis ta technique jour après jour.</p>
-          <ul class="links-list">
-            <li><a target="_blank" href="https://www.youtube.com/results?search_query=beginner+vocal+warm+up+jacob%27s+vocal+academy">Recherche YouTube : Jacob’s Vocal Academy warm up</a></li>
-            <li><a target="_blank" href="https://www.youtube.com/results?search_query=vocal+scales+for+beginners">Recherche YouTube : vocal scales for beginners</a></li>
-          </ul>
-        </article>
+        <div class="card">
+          <h3>Humming / SOVT</h3>
+          <p>Réveille ta voix en douceur.</p>
+          <a href="https://www.youtube.com/results?search_query=humming+vocal+warm+up" target="_blank">Voir les exercices</a>
+        </div>
 
-        <article class="card">
-          <h3>Morceau du jour (10 min)</h3>
-          <p>Tu appliques la technique sur un vrai morceau. Un passage précis, un objectif précis.</p>
-          <ul class="links-list">
-            <li><a target="_blank" href="https://www.youtube.com/results?search_query=karaoke+instrumental">Recherche YouTube : karaoke instrumental</a></li>
-          </ul>
-        </article>
-      </div>
+        <div class="card">
+          <h3>Gammes & agilité</h3>
+          <p>Travail technique pour progresser vite.</p>
+          <a href="https://www.youtube.com/results?search_query=vocal+scales+for+beginners" target="_blank">Voir les gammes</a>
+        </div>
 
-      <div class="note-card">
-        <h3>Notes perso — Chant</h3>
-        <textarea placeholder="Ce que j’ai bien fait aujourd’hui, ce qui bloque, ce que je veux améliorer…"></textarea>
+        <div class="card">
+          <h3>Morceau du jour</h3>
+          <p>Applique la technique sur un vrai morceau.</p>
+          <a href="https://www.youtube.com/results?search_query=karaoke+instrumental" target="_blank">Chercher un karaoké</a>
+        </div>
+
       </div>
     </section>
 
-    <!-- SECTION ACTING -->
-    <section id="acting" class="section alt">
+    <!-- ACTING -->
+    <section id="acting" class="section">
       <h2>🎭 Acting — Routine 40 minutes</h2>
-      <p class="section-subtitle">Corps, voix, texte, émotions : tu construis un jeu vivant et crédible.</p>
 
-      <div class="cards-grid">
-        <article class="card">
-          <h3>Corps + voix (10 min)</h3>
-          <p>Déverrouiller le corps, articuler, poser la voix pour être présent et clair.</p>
-          <ul class="links-list">
-            <li><a target="_blank" href="https://www.youtube.com/results?search_query=acting+warm+up+exercises">Recherche YouTube : acting warm up exercises</a></li>
-            <li><a target="_blank" href="https://www.youtube.com/results?search_query=voice+warm+up+for+actors">Recherche YouTube : voice warm up for actors</a></li>
-          </ul>
-        </article>
+      <div class="card-grid">
 
-        <article class="card">
-          <h3>Monologue / texte (15 min)</h3>
-          <p>Comprendre le texte, le rythme, les intentions. Tu apprends à porter une scène.</p>
-          <ul class="links-list">
-            <li><a target="_blank" href="https://www.backstage.com/magazine/tag/monologues/">Backstage — Monologues</a></li>
-            <li><a target="_blank" href="https://www.stagemilk.com/monologues-for-actors/">StageMilk — Monologues for actors</a></li>
-          </ul>
-        </article>
+        <div class="card">
+          <h3>Corps + voix</h3>
+          <p>Déverrouille ton corps et ta diction.</p>
+          <a href="https://www.youtube.com/results?search_query=acting+warm+up+exercises" target="_blank">Voir les exercices</a>
+        </div>
 
-        <article class="card">
-          <h3>Émotions / improvisation (15 min)</h3>
-          <p>Explorer différentes émotions, improviser, sortir du mental et jouer vraiment.</p>
-          <ul class="links-list">
-            <li><a target="_blank" href="https://www.youtube.com/results?search_query=acting+exercises+for+beginners">Recherche YouTube : acting exercises for beginners</a></li>
-            <li><a target="_blank" href="https://www.youtube.com/results?search_query=improv+exercises+acting">Recherche YouTube : improv exercises acting</a></li>
-          </ul>
-        </article>
-      </div>
+        <div class="card">
+          <h3>Monologue / texte</h3>
+          <p>Travaille ton interprétation.</p>
+          <a href="https://www.stagemilk.com/monologues-for-actors/" target="_blank">Voir des monologues</a>
+        </div>
 
-      <div class="note-card">
-        <h3>Notes perso — Acting</h3>
-        <textarea placeholder="Ce que j’ai ressenti, ce qui a marché, ce que je veux retravailler…"></textarea>
+        <div class="card">
+          <h3>Émotions / improvisation</h3>
+          <p>Développe ton jeu naturel.</p>
+          <a href="https://www.youtube.com/results?search_query=acting+exercises+for+beginners" target="_blank">Voir les exercices</a>
+        </div>
+
       </div>
     </section>
 
-    <!-- SECTION ANGLAIS -->
+    <!-- ANGLAIS -->
     <section id="anglais" class="section">
       <h2>🇬🇧 Anglais / Diction</h2>
-      <p class="section-subtitle">Tu travailles la prononciation pour chanter et jouer plus librement en anglais.</p>
 
-      <div class="cards-grid">
-        <article class="card">
-          <h3>Prononciation pour chanter</h3>
-          <ul class="links-list">
-            <li><a target="_blank" href="https://www.youtube.com/results?search_query=english+pronunciation+for+singers">Recherche YouTube : english pronunciation for singers</a></li>
-          </ul>
-        </article>
+      <div class="card-grid">
 
-        <article class="card">
-          <h3>Prononciation pour jouer</h3>
-          <ul class="links-list">
-            <li><a target="_blank" href="https://www.youtube.com/results?search_query=english+pronunciation+for+actors">Recherche YouTube : english pronunciation for actors</a></li>
-          </ul>
-        </article>
+        <div class="card">
+          <h3>Prononciation chant</h3>
+          <a href="https://www.youtube.com/results?search_query=english+pronunciation+for+singers" target="_blank">Voir les vidéos</a>
+        </div>
 
-        <article class="card">
-          <h3>Phonétique & accent</h3>
-          <ul class="links-list">
-            <li><a target="_blank" href="https://www.youtube.com/results?search_query=rachel%27s+english+pronunciation">Recherche YouTube : Rachel’s English</a></li>
-          </ul>
-        </article>
-      </div>
+        <div class="card">
+          <h3>Prononciation acting</h3>
+          <a href="https://www.youtube.com/results?search_query=english+pronunciation+for+actors" target="_blank">Voir les vidéos</a>
+        </div>
 
-      <div class="note-card">
-        <h3>Notes perso — Anglais</h3>
-        <textarea placeholder="Mots difficiles, sons à retravailler, phrases à répéter…"></textarea>
+        <div class="card">
+          <h3>Phonétique</h3>
+          <a href="https://www.youtube.com/results?search_query=rachel%27s+english+pronunciation" target="_blank">Voir les vidéos</a>
+        </div>
+
       </div>
     </section>
 
-    <!-- SECTION PLANNING -->
-    <section id="planning" class="section alt">
+    <!-- PLANNING -->
+    <section id="planning" class="section">
       <h2>📅 Planning</h2>
-      <p class="section-subtitle">Ton cadre : 1h30 par jour, régulier, efficace.</p>
 
-      <div class="planning-grid">
-        <div class="planning-card">
-          <h3>Planning quotidien (1h30)</h3>
-          <ul>
-            <li>🎤 Chant : 30 min</li>
-            <li>🎭 Acting : 40 min</li>
-            <li>🇬🇧 Anglais / Diction : 20 min</li>
-            <li>📝 Bilan : 5 min</li>
-          </ul>
-        </div>
-
-        <div class="planning-card">
-          <h3>Planning hebdomadaire (exemple)</h3>
-          <table>
-            <thead>
-              <tr>
-                <th>Jour</th>
-                <th>Chant</th>
-                <th>Acting</th>
-                <th>Anglais</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Lundi</td>
-                <td>Justesse</td>
-                <td>Diction</td>
-                <td>Prononciation de base</td>
-              </tr>
-              <tr>
-                <td>Mardi</td>
-                <td>Respiration</td>
-                <td>Émotions</td>
-                <td>Rythme & accent</td>
-              </tr>
-              <tr>
-                <td>Mercredi</td>
-                <td>Résonance</td>
-                <td>Monologue</td>
-                <td>Lecture à voix haute</td>
-              </tr>
-              <tr>
-                <td>Jeudi</td>
-                <td>Rythme</td>
-                <td>Improvisation</td>
-                <td>Compréhension orale</td>
-              </tr>
-              <tr>
-                <td>Vendredi</td>
-                <td>Endurance</td>
-                <td>Caméra</td>
-                <td>Prononciation fine</td>
-              </tr>
-              <tr>
-                <td>Samedi</td>
-                <td>Simulation audition</td>
-                <td>Scène complète</td>
-                <td>Bilan semaine</td>
-              </tr>
-              <tr>
-                <td>Dimanche</td>
-                <td colspan="3">Repos / inspiration / visionnage de références</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+      <div class="planning-box">
+        <ul>
+          <li>🎤 Chant : 30 min</li>
+          <li>🎭 Acting : 40 min</li>
+          <li>🇬🇧 Anglais : 20 min</li>
+          <li>📝 Bilan : 5 min</li>
+        </ul>
       </div>
 
-      <button class="primary-btn" onclick="window.print()">Imprimer cette page</button>
+      <button class="primary-btn" onclick="window.print()">Imprimer</button>
     </section>
 
-    <!-- SECTION RESSOURCES -->
+    <!-- RESSOURCES -->
     <section id="ressources" class="section">
       <h2>📦 Ressources personnelles</h2>
-      <p class="section-subtitle">Tu centralises ici tes propres liens : vidéos, audios, textes.</p>
 
-      <div class="resources-layout">
-        <form id="resource-form" class="card form-card">
-          <h3>Ajouter une ressource</h3>
-          <label>
-            Catégorie
-            <select id="resource-category">
-              <option value="Chant">Chant</option>
-              <option value="Acting">Acting</option>
-              <option value="Anglais">Anglais</option>
-            </select>
-          </label>
+      <form id="resource-form" class="resource-form">
+        <label>Catégorie</label>
+        <select id="resource-category">
+          <option>Chant</option>
+          <option>Acting</option>
+          <option>Anglais</option>
+        </select>
 
-          <label>
-            Titre
-            <input type="text" id="resource-title" placeholder="Ex : Échauffement vocal 10 min" required />
-          </label>
+        <label>Titre</label>
+        <input type="text" id="resource-title" required />
 
-          <label>
-            Lien
-            <input type="url" id="resource-link" placeholder="https://..." required />
-          </label>
+        <label>Lien</label>
+        <input type="url" id="resource-link" required />
 
-          <label>
-            Commentaire
-            <textarea id="resource-notes" placeholder="Ce que je dois travailler avec cette ressource…"></textarea>
-          </label>
+        <label>Notes</label>
+        <textarea id="resource-notes"></textarea>
 
-          <button type="submit" class="primary-btn">Ajouter</button>
-        </form>
+        <button class="primary-btn">Ajouter</button>
+      </form>
 
-        <div class="card resources-card">
-          <h3>Mes ressources</h3>
-          <table id="resources-table">
-            <thead>
-              <tr>
-                <th>Catégorie</th>
-                <th>Titre</th>
-                <th>Lien</th>
-                <th>Notes</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <!-- Rempli par JS -->
-            </tbody>
-          </table>
-        </div>
-      </div>
+      <table id="resources-table">
+        <thead>
+          <tr>
+            <th>Catégorie</th>
+            <th>Titre</th>
+            <th>Lien</th>
+            <th>Notes</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
     </section>
-  </main>
 
-  <footer class="footer">
-    <p>Tu n’es pas en retard. Tu es en chemin. Continue.</p>
-  </footer>
+  </main>
 
   <script src="script.js"></script>
 </body>
